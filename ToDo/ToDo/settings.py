@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7uaksxkzoh@v7^xxj+_atwujm$rh72)7deeazm+_rpq97=^afm
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'ToDo_API'
+    'ToDo_API',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -49,7 +50,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    
 ]
+
+# Allow all origins (for development only)
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'ToDo.urls'
 
